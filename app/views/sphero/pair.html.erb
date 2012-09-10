@@ -1,0 +1,6 @@
+<p><h1>Pair your sphero</h1></p>
+<%= form_tag("/sphero/new/", :method => "post") do %>
+  <%= label_tag(:name, "Type in the name of your Sphero:") %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("Pair!", :class =>"btn btn-success") %>
+<% end %>

@@ -1,0 +1,11 @@
+<p>
+<%= button_to_function "Roll", "$.ajax({type: 'GET',  url: '/sphero/roll/'})", :class => "btn btn-info" %>
+<%= button_to_function "Stop", "$.ajax({type: 'GET',  url: '/sphero/stop/'})", :class => "btn btn-warning"  %>
+</p>
+
+<p>
+<%= button_to_function "Red", "$.ajax({type: 'GET',  url: '/sphero/rgb/255/0/0'})", :class => "btn btn-danger" %>
+<%= button_to_function "Green", "$.ajax({type: 'GET',  url: '/sphero/rgb/0/255/0'})", :class => "btn btn-success"  %>
+<%= button_to_function "Blue", "$.ajax({type: 'GET',  url: '/sphero/rgb/0/0/255'})", :class => "btn btn-primary"  %>
+<%= button_to_function "White", "$.ajax({type: 'GET',  url: '/sphero/rgb/255/255/255'})", :class => "btn"  %>
+</p>
