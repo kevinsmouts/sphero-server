@@ -50,6 +50,8 @@ SpheroServ::Application.routes.draw do
   # just remember to delete public/index.html.
 
   root :to => 'Sphero#index'
+  match "/sphero/speed/:inc" => "Sphero#speed"
+  match "/sphero/turn/:angle" => "Sphero#turn"
   match "/sphero/controls/" => "Sphero#controls"
   match "/sphero/pair/" => "Sphero#pair"
   match "/sphero/new/" => "Sphero#new", :method => :post

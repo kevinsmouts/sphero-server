@@ -8,6 +8,7 @@ def index
     redirect_to ('/sphero/pair/')
   end
 end
+
 def pair
 end
 
@@ -18,6 +19,49 @@ end
 
 def controls
 end
+
+def speed
+
+if defined? @@current_speed
+faster = @@current_speed + params[:inc].to_i
+@@s.roll(faster,@@current_angle)
+@@current_speed = faster
+else
+faster = params[:inc].to_i
+@@s.roll(faster,0)
+@@current_speed = faster
+end
+
+end
+
+
+def turn
+
+if defined? @@current_angle 
+  if defined? @@current_speed
+angle = @@current_angle + params[:angle].to_i
+@@s.roll(@@current_speed,angle)
+@@current_angle = angle
+  else
+    angle = @@current_angle + params[:angle].to_i
+    @@s.roll(0,angle)
+    @@current_angle = angle
+  end
+
+else
+  if defined? @@current_speed
+angle = params[:angle].to_i
+@@s.roll(@@current_speed,angle)
+@@current_angle = angle
+else
+  angle = params[:angle].to_i
+  @@s.roll(0,angle)
+  @@current_angle = angle
+end
+end
+
+end
+
 
 
 
@@ -33,6 +77,7 @@ end
 
 def stop
   @@s.stop
+  @@current_speed = 0
 end
 
 def sleep
